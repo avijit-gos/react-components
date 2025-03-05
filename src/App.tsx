@@ -1,13 +1,22 @@
 /** @format */
-import Toast from "./component/ui/Toast/Toast";
+
+import { useState } from "react";
+import InputComponent from "./component/ui/Input/InputComponent";
 
 function App() {
+  const [name, setName] = useState<string>("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
   return (
     <>
-      <Toast value={30} />
-      <Toast value={60} />
-      <Toast value={90} />
-      <Toast value={100} />
+      <InputComponent
+        type='text'
+        placeholder='Enter your name'
+        value={name}
+        handleInputChange={handleInputChange}
+      />
     </>
   );
 }
